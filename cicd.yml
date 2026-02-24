@@ -1,2 +1,15 @@
-trigger:
-  - main
+trigger
+  main():
+    print("Hello, World!")
+stages:
+  - stage: Build
+    jobs:
+      - job: BuildJob
+        steps:
+          - script: echo "Building the application..."
+  - stage: Deploy
+    dependsOn: Build
+    jobs:
+      - job: DeployJob
+        steps:
+          - script: echo "Deploying to AKS..."
