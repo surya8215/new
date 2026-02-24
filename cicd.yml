@@ -7,9 +7,3 @@ stages:
       - job: BuildJob
         steps:
           - script: echo "Building the application..."
-  - stage: Deploy
-    dependsOn: Build
-    jobs:
-      - job: DeployJob
-        steps:
-          - script: echo "Deploying to AKS..."
